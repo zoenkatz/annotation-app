@@ -1,17 +1,20 @@
 import React from 'react';
 
-class Output extends React.Component{
+class Output extends React.Component {
 
-    render(){
-        return(
+
+    render() {
+
+        const outputRes = Object.keys(this.props.crop).map((key, index) => {
+            return (
+                <li key={index}>{key.toUpperCase()}: {this.props.crop[key]}</li>
+            )
+        });
+
+        return (
             <div className="output-area">
                 <p>
-                    <li>X: {this.props.crop.x}</li>
-                    <li>Y: {this.props.crop.x}</li>
-                    <li>Height: {this.props.crop.height}</li>
-                    <li>Width: {this.props.crop.width}</li>
-                    <li>Image Url: {this.props.crop.image_url}</li>
-                    <li>Annotation Type: {this.props.crop.annotation_type}</li>
+                    {outputRes}
                 </p>
             </div>
         )
